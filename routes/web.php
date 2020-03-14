@@ -28,3 +28,6 @@ Route::get('/admin/dashboard',function(){
     return view ('/admin/layout/dashboard');
 
 });
+
+
+Route::resource('/site', 'StudentsController');
