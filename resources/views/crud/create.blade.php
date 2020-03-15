@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="{{asset('public/css/bootstrap.min.css')}}">
 </head>
-<body background="#f6eead">
+<body style="background:#f6eead ">
               
           <div class="container">
             <h2>Register New Students Records</h2>

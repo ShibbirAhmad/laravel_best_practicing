@@ -9,11 +9,11 @@
 
   <link rel="stylesheet" href="{{asset('public/css/bootstrap.min.css')}}">
 </head>
-<body background="#f6eead">
+<body style="background:#f6eead ">
               
           <div class="container">
             <h2>All of registered Student list</h2>
-            <h3><a href="{{route('crud.create')}}">create New user</a></h3>
+            <h3><a href="{{route('crud.create')}}">create New Student</a></h3>
           </div>
 
           <div class="container">
@@ -36,7 +36,8 @@
                                  <td>{{$data->roll}}</td>
                                  <td>{{$data->registration}}</td>
                                  <td>{{$data->department}}</td>
-                                 <td><a href="">Edit</a> ||   <a href="">Delete</a></td>
+                                 <td><a href="{{route('crud.show',$data->id)}}">Show</a> || 
+                                    <a href="">Edit</a></td>
                              </tr>
                          @endforeach
                 </tbody>

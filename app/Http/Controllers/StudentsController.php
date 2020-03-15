@@ -57,7 +57,9 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data=student::find($id);
+
+        return view('crud.show',compact('data'));
     }
 
     /**
