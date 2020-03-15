@@ -30,6 +30,22 @@
                 </thead>
                
                 <tbody>
+                  
+            @if (Session::has('success'))
+            <p>{{Session::get('success')}}</p>
+        @endif
+
+
+        @if (count($errors) > 0)
+
+            <ul>
+               @foreach ($errors->all() as $error)
+                   <li>{{$error}}</li>
+               @endforeach
+
+            </ul>
+            
+        @endif
                          @foreach ($student as $data)
                              <tr>
                                  <td>{{$data->name}}</td>
@@ -37,7 +53,17 @@
                                  <td>{{$data->registration}}</td>
                                  <td>{{$data->department}}</td>
                                  <td><a href="{{route('crud.show',$data->id)}}">Show</a> || 
-                                    <a href="{{route('crud.edit',$data->id)}}">Edit</a> ||  </td> 
+                                    <a href="{{route('crud.edit',$data->id)}}">Edit</a> ||
+                                  <div style="margin-top:-24px;margin-left:180px;">
+                                    <form onclick="return confirm('Are you sure to Delete');"  action="{{route('crud.destroy',$data->id)}}" method="post">
+                                      @csrf   
+                                      @method('DELETE')
+                                          <button style="cursor:pointer;" >Delete</button>
+                                  </form> 
+                                  
+                                  </div>
+                                  
+                                  </td> 
                              </tr>
                          @endforeach
                 </tbody>
