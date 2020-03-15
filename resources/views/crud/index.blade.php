@@ -1,13 +1,23 @@
-@extends('admin.master')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-@section('content')
- 
+  <title>Document</title>
+
+  <link rel="stylesheet" href="{{asset('public/css/bootstrap.min.css')}}">
+</head>
+<body background="#f6eead">
+              
           <div class="container">
             <h2>All of registered Student list</h2>
+            <h3><a href="{{route('crud.create')}}">create New user</a></h3>
           </div>
 
           <div class="container">
-            <table class="table table-border">
+            <table class="text-center border border-light p-5 table table-border">
           
                 <thead>
                    
@@ -33,6 +43,5 @@
               </table>
           </div>
           
-
-
-@endsection
+</body>
+</html>

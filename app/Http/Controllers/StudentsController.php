@@ -16,7 +16,7 @@ class StudentsController extends Controller
     {
         $student = student::all();
         
-        return view ('site.index',compact('student'));
+        return view ('crud.index',compact('student'));
     }
 
     /**
@@ -26,7 +26,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('crud.create');
     }
 
     /**
@@ -37,7 +37,16 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules=[ 'name' => 'required|min:4', 
+                 'roll' => 'required',
+                 'registration' => 'required',
+              
+               ];
+
+                $this->validate($request,$rules);
+                student::create($request->all());
+
+               return redirect()->back()->with('success','new student created successfully!');
     }
 
     /**

@@ -30,4 +30,4 @@ Route::get('/admin/dashboard',function(){
 });
 
 
-Route::resource('/site', 'StudentsController');
+Route::resource('/crud', 'StudentsController');
