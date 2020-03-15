@@ -37,7 +37,7 @@
                                  <td>{{$data->registration}}</td>
                                  <td>{{$data->department}}</td>
                                  <td><a href="{{route('crud.show',$data->id)}}">Show</a> || 
-                                    <a href="">Edit</a></td>
+                                    <a href="{{route('crud.edit',$data->id)}}">Edit</a> ||  </td> 
                              </tr>
                          @endforeach
                 </tbody>

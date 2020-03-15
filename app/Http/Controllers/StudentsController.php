@@ -70,7 +70,9 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = student::find($id);
+
+        return view('crud.edit',compact('data'));
     }
 
     /**
@@ -82,7 +84,17 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules=[ 'name' => 'required|min:4', 
+        'roll' => 'required',
+        'registration' => 'required',
+     
+               ];
+
+        $this->validate($request,$rules);
+        $updata=student::find($id);
+        $updata->update($request->all());
+
+        return redirect()->back()->with('success','your information updated successfully');
     }
 
     /**
